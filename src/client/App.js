@@ -18,7 +18,8 @@ class App extends Component {
       performingLogin: false,
       loginFailed: false,
       sections: null,
-      lessons: null
+      lessons: null,
+      sectionName: null,
     }
 
     this.state = {
@@ -79,7 +80,8 @@ class App extends Component {
     })
       .then(response =>
         this.setState({
-          lessons: response.lessons
+          lessons: response.lessons,
+          sectionName: section.name 
         })
       )
   }
@@ -108,7 +110,7 @@ class App extends Component {
             {
               this.state.lessons &&
                 <LessonList
-                  lessons={this.state.lessons} />
+                  lessons={this.state.lessons} sectionName={this.state.sectionName}/>
             }
           </div>
         </div>
