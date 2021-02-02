@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 class LessonList extends Component {
   constructor(props) {
     super(props)
-    const moduleCode = this.props.sectionName.match(/[A-Z]{2,3}\w{3}/)
+    const moduleCode = this.props.sectionName.match(/[A-Z]{2}[1-4,9][A-Z,0-9]\d/)
     if (moduleCode && moduleCode.length && moduleCode[0].length == 5) {
       this.prefix = moduleCode[0]
     } else { 
