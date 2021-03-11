@@ -20,7 +20,7 @@ app.post('/api/login', bodyParser.json(), (req, res) => {
 
   acquireInstitutionId(email, appId)
     .then((institutionId) => {
-      return acquireNonce(email, password, institutionId)
+      return acquireNonce(email, password, appId, institutionId)
         .then((nonce) => acquireCode(nonce, appId, institutionId))
         .then((code) => acquireToken(code, appId))
         .then((token) => res.send({
